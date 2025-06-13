@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>タイトル</title>
+<link rel="stylesheet" href="css\style.css">
+</head>
+<body>
+<div class="wrapper">
+	<!-- ヘッター -->
+	<header class="header">
+		<h1 class="logo"><a href="index.html"><img src="images\HOME_PAGE_logo(ChatGPT).png" alt="読み込みエラー"></a></h1>
+		<nav class="nav">
+			<ul>
+				<li><a href="index.html">ホーム</a></li>
+				<li><a href="member.html">メンバー</a></li>
+				<li><a href="activities.html">活動記録</a></li>
+				<li><a href="production.html">制作物</a></li>
+				<li><a href="contact.html">問い合わせ</a></li>
+			</ul>
+	</nav>
+	</header>
+	<!-- ヘッター ここまで-->
+	<!-- メイン -->
+	<main>
+				<h2>お問い合わせ</h2>
+		<form method="GET" action="result.html">
+			<div>
+				お問い合わせ<br>
+				<select name="kind">
+					<option value="Job_Requests">お仕事の依頼</option>
+					<option value="Request_information">資料請求</option>
+					<option value="others">その他のお問い合わせ</option>
+				</select>
+			</div>
+			<div>
+				このサイトを知っていましたか？<br>
+				<input type="radio" name="first" value="yes" checked>はい
+				<input type="radio" name="first" value="no">いいえ
+			</div>
+			<div>
+				このサイトを知ったきっかけは？(はいの方のみ)<br>
+				<input type="checkbox" name="how" value="froends">知り合いの紹介で
+				<input type="checkbox" name="how" value="etc">その他
+			</div>
+			<div>
+				お問い合わせの件名<br>
+				<input type="text" name="subject" placeholder="お問い合わせ">
+			</div>
+			<div>
+				お問い合わせの具体的な内容<br>
+				<textarea name="message"></textarea>
+			</div>
+			<div>
+				<input type="submit" name="submit" value="送信">
+			</div>
+		</form>
+	</main>
+	<footer class="footer">
+		<p>&copy;Copyright TEST HOME PAGE. ALL rights reserved.<p>
+	</footer>
+</div>
+</body>
+</html>
