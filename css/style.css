@@ -1,0 +1,147 @@
+@charset "UTF-8";
+
+/* 全てのWebページに適応される */
+html{
+		font-family: sans-serif;
+}
+html *{
+		box-sizing: border-box;
+}
+
+body {
+		margin: 0 0 0 0;
+		background-color: #99d9ea;
+}
+.wrapper{
+		margin: 0 auto 0 auto;
+		max-width: 960px;
+}
+h2 {
+		color: #000000;
+		font-size: 22px;
+		border-bottom: 3px solid #eeece9;
+		margin-top: 20px;
+		margin-right: 0px;
+		margin-bottom: 20px;
+		margin-left: 0px;
+		margin-top: 5px;
+		margin-right: 5px;
+		margin-bottom: 5px;
+		margin-left: 5px;
+}
+p{
+	line-height: 1.2;
+}
+a:link{
+		color: #d25833;
+}
+a:visited{
+		color: #d25833;
+}
+a:hover{
+		color: #e3937a;
+}
+a:active{
+		color: #ff6a3b;
+}
+
+/* すべてのページに適応 - ヘッター - */
+.logo{
+		margin: 50px 0 40px 0;
+		line-height: 0;
+		text-align: center;
+}
+.nav li{
+		display: inline;
+		list-style: none;
+		padding-right: 30px;
+}
+.nav ul{
+		margin: 0 0 0 0;
+		padding: 20px 10px 15px 20px;
+		border-top: 6px solid #0000ee;	/*background-image: url("../images/menu-bg.png");*/
+		background-repeat: repeat-x;
+}
+
+/* 全てのページに適応 - ハンバーガボタン - */
+.nav-menu {
+  display: none;
+  flex-direction: column;
+  background: #fff;
+  padding: 10px;
+}
+
+.menu-toggle {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* メニューが表示される時のクラス */
+.nav-menu.active {
+  display: flex;
+}
+
+/* PCサイズでは常にメニュー表示 & ボタン非表示 */
+@media screen and (min-width: 768px) {
+  .nav-menu {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/** すべてのページに適応 - フッター -  */
+.footer{
+		border-top: 3px solid #eeece9;
+
+		background-repeat: no-repeat;
+		margin-top: 30px;
+		padding: 80px 15px 20px 15px;
+		font-size: 12px;
+		color: #3f5170;
+}
+
+/* contact.html */
+form{
+		padding: 12px;
+		border-bottom: 1px dashed #bec2c7;
+}
+select{
+		width: 30em;
+}
+input[name="subject"]{
+		width: 30em;
+}
+textarea{
+		width: 30em;
+		height: 6em;
+}
+input[type="submit"]{
+		margin: 20px 0;
+		width: 30em;
+}
+/* スマートフォン向けCSS */
+@media (max-width: 767px){
+	/* 全体 - ナビゲーション */
+		.wrapper{
+				margin: 0 8px;
+		}
+		.logo{
+				margin: 30px 0;
+		}
+		.logo img{
+				width: 200px;
+		}
+		.nav{
+				background-color: #dfddda;
+		}
+		.nav li{
+				display: block;
+		}
+}
