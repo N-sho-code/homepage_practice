@@ -1,0 +1,17 @@
+@charset "UTF-8";
+.choice-form {
+    display: inline-block;
+    margin: 10px;
+}
+.choice-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.choice-btn:hover {
+    background-color: #ddd;
+}
+
