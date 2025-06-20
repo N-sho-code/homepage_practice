@@ -6,20 +6,31 @@
 <link rel="stylesheet" href="css\style.css">
 </head>
 <body>
-<div class="wrapper">
-	<!-- ヘッター -->
-	<header class="header">
-		<h1 class="logo"><a href="index.html"><img src="images\HOME_PAGE_logo(ChatGPT).png" alt="読み込みエラー"></a></h1>
-		<nav class="nav">
-			<ul>
-				<li><a href="index.html">ホーム</a></li>
-				<li><a href="member.html">メンバー</a></li>
-				<li><a href="Activities.html">活動記録</a></li>
-				<li><a href="production.html">制作物</a></li>
-				<li><a href="contact.html">問い合わせ</a></li>
-			</ul>
-	</nav>
-	</header>
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			const toggle = document.querySelector('.menu-toggle');
+			const menu = document.querySelector('.nav-menu');
+	
+			toggle.addEventListener('click', function () {
+			menu.classList.toggle('active');
+			});
+		});
+		</script>
+	<div class="wrapper">
+		<!-- ヘッター -->
+		<header class="header">
+			<h1 class="logo"><a href="index.html"><img src="images\HOME_PAGE_logo(ChatGPT).png" alt="読み込みエラー"></a></h1>
+			<button class="menu-toggle" aria-label="メニューを開閉">☰</button>
+			<nav class="nav">
+				<ul class="nav-menu">
+					<li><a href="index.html">ホーム</a></li>
+					<li><a href="member.html">メンバー</a></li>
+					<li><a href="activities.html">活動記録</a></li>
+					<li><a href="production.html">制作物</a></li>
+					<li><a href="contact.html">問い合わせ</a></li>
+				</ul>
+			</nav>
+		</header>
 	<!-- ヘッター ここまで-->
 	<!-- メイン -->
 	<main>
