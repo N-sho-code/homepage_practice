@@ -143,5 +143,6 @@ input[type="submit"]{
 		}
 		.nav li{
 				display: block;
+				padding-bottom: 1em;
 		}
 }
