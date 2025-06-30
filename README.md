@@ -27,8 +27,10 @@
 ***
 **・ハンバーガボタンの表示(767以下)**  
 
-![Hamburger button](https://github.com/N-sho-code/homepage_practice/blob/main/images/Hamburger%20button.gif)
+![Hamburger button](https://github.com/N-sho-code/homepage_practice/blob/main/images/Hamburger%20button.gif)  
 
+**・フィルター機能** 
+![Filter_function](https://github.com/N-sho-code/homepage_practice/blob/main/images/Filter_function.gif)  
 
 
 **利用ツール、利用サイト**
@@ -62,11 +64,11 @@ https://rakko.tools/tools/86/
 現状は ＜p＞ や ＜li＞ タグで囲わないと表示されない部分があるため、今後はタグを気にせず使える、
 ブログのような簡単な入力フォームに改善していく予定です。  
 
-**さいごに**
+**さいごに**  
 この制作を通して、Webに関する知識や技術（HTML/CSS、JavaScriptなど）を、実際に手を動かしながら身につけることができました。  
 JavaScriptやHTMLを使ったフロントエンドの作品については、GitHub上に公開し、実際に動かせる形で見ていただけるようになっています。  
-一方で、PHP・Ruby・Pythonなどのバックエンド技術を使った作品については、まだ実行環境の準備が整っておらず、  
-今後はそれらの技術にも対応できるよう、環境構築などにも取り組んでいきたいと考えています。  
+一方で、PHP・Ruby・Pythonなどのバックエンド技術を使った作品については、まだ実行環境の準備が整っておらず、今後はそれらの技術にも対応できるよう、環境構築などにも取り組んでいきたいと考えています。  
+
 
 
 
