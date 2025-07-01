@@ -34,14 +34,17 @@
 ![Filter_function](https://github.com/N-sho-code/homepage_practice/blob/main/images/Filter_function.gif)  
 
 
-**利用ツール、利用サイト**
-・Visual Studio Code
+**利用ツール、利用サイト**  
+・Visual Studio Code  
 
 ・サクラエディタ  
 
 ・ペイント(Microsoft Paint)  
 
 ・Snipping Tool(画面キャプチャーツール)  
+
+・ChatGPT  
+https://chatgpt.com/  
 
 ・GitHub  
 https://github.co.jp/
