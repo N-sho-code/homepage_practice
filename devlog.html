@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>感想</title>
+<link rel="stylesheet" href="css\style.css">
+</head>
+<body>
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			const toggle = document.querySelector('.menu-toggle');
+			const menu = document.querySelector('.nav-menu');
+	
+			toggle.addEventListener('click', function () {
+			menu.classList.toggle('active');
+			});
+		});
+		</script>
+	<div class="wrapper">
+		<!-- ヘッター -->
+		<header class="header">
+			<h1 class="logo"><a href="index.html"><img src="images\HOME_PAGE_logo(ChatGPT).png" alt="読み込みエラー"></a></h1>
+			<button class="menu-toggle" aria-label="メニューを開閉">☰</button>
+			<nav class="nav">
+				<ul class="nav-menu">
+					<li><a href="index.html">ホーム</a></li>
+					<li><a href="member.html">メンバー</a></li>
+					<li><a href="activities.html">活動記録</a></li>
+					<li><a href="production.html">制作物</a></li>
+					<li><a href="contact.html">問い合わせ</a></li>
+				</ul>
+			</nav>
+		</header>
+	<!-- ヘッター ここまで-->
+	<!-- メイン -->
+	<main>
+        <h2>感想</h2>
+			<string>
+				今回【プログラミング】オセロを1時間で作ってみた【実況解説】(<a href="https://www.nicovideo.jp/watch/sm8391299" target="_blank">https://www.nicovideo.jp/watch/sm8391299</a>)<br>
+				を使ったリバーシゲームをを動画を見ながら作成しました
+			</string>
+		<h2>１日目</h2>
+			<p>参考にしたサイトはhtml、css、JavaScriptを利用のみで作成されているため、標準搭載のメモ帳のみで作成できるため、勉強にもってこいだと考えたので動画を参照し作成しました。<br>
+				&lt;div id="cell"style="position:relative;width:33px;height:33px;background-color:#000"&gt;
+				で33pxの黒色の正方形を描画し<br>&lt;div id="cell"style="position:relative;top:1px;left:1px;width:31px;height:31px;background-color:#0e0"&gt;<dr>
+				で31pxの緑色の正方形を重ねて描画することにより１マスを表示させます。
+			</p>
+			<div class="code-block">
+				<pre>
+					<code>	
+&lt;div id="cell"style="position:relative;width:33px;height:33px;background-color:#000"&gt;
+&lt;div id="cell"style="position:relative;top:1px;left:1px;width:31px;height:31px;background-color:#0e0"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+					</code>
+				</pre>
+			</div>
+			<p>
+
+			</p>
+
+			
+
+
+
+	</main>
+	<!-- メインここまで -->
+	<footer class="footer">
+		<p>&copy;Copyright TEST HOME PAGE. ALL rights reserved.</p>
+	</footer>
+</div>
+</body>
+</html>
