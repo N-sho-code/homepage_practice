@@ -52,6 +52,9 @@ https://github.co.jp/
 ・ラッコツール　動画をGIFに変換    
 https://rakko.tools/tools/86/
 
+Qiita　【保存版】Webフロントエンド基礎力（初心者向け）
+https://qiita.com/teradonburi/items/43c52d7cffc318e9b1e9
+
 **実装予定の機能**  
 ***
 **・お問い合わせフォームの機能の拡張**
