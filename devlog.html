@@ -41,14 +41,16 @@
 				を使ったリバーシゲームをを動画を見ながら作成しました
 			</string>
 		<h2>１日目</h2>
-			<p>参考にしたサイトはhtml、css、JavaScriptを利用のみで作成されているため、標準搭載のメモ帳のみで作成できるため、勉強にもってこいだと考えたので動画を参照し作成しました。<br>
-				&lt;div id="cell"style="position:relative;width:33px;height:33px;background-color:#000"&gt;
-				で33pxの黒色の正方形を描画し<br>&lt;div id="cell"style="position:relative;top:1px;left:1px;width:31px;height:31px;background-color:#0e0"&gt;<dr>
-				で31pxの緑色の正方形を重ねて描画することにより１マスを表示させます。
+			<p>今回、「<a href="https://www.nicovideo.jp/watch/sm8391299" target="_blank">
+				【プログラミング】オセロを1時間で作ってみた【実況解説】</a>」という動画を参考に、リバーシゲームを作成しました。<br>
+				参考動画を見ながら、リバーシゲームのマスや石の描画をHTMLとCSSのみで行う実装に挑戦しました。<br>
+				簡素なコードで構造を作り、見た目を再現する過程で、HTML要素の入れ子構造やCSSのスタイル指定について理解を深められました。
+				参考にした動画では、HTML・CSS・JavaScriptだけを使って実装されており、メモ帳などの簡単なツールで作成できる点に魅力を感じました。
 			</p>
 			<div class="code-block">
 				<pre>
-					<code>	
+					<code>
+&lt;!-- 緑マス --&gt;
 &lt;div id="cell"style="position:relative;width:33px;height:33px;background-color:#000"&gt;
 &lt;div id="cell"style="position:relative;top:1px;left:1px;width:31px;height:31px;background-color:#0e0"&gt;
 &lt;/div&gt;
@@ -56,14 +58,70 @@
 					</code>
 				</pre>
 			</div>
-			<p>
+			<p>緑マスをベースに、ペイントツールで作成した<code>「white.png」</code>と<code>「black.png」</code>を使って、白石・黒石の表示を実装しました。</p>
+				<div class="code-block">
+					<pre>
+						<code>
+&lt;!-- 緑セル --&gt;
+&lt;div id="cell" style="position:relative; width:33px; height:33px; background-color:#000;"&gt;
+&lt;div style="position:relative; top:1px; left:1px; width:31px; height:31px; background-color:#0e0;"&gt;&lt;/div&gt;
+&lt;/div&gt;
 
-			</p>
+&lt;!-- 白い石 --&gt;
+&lt;div id="white" style="position:relative; width:33px; height:33px; background-color:#000;"&gt;
+&lt;img src="white.png" style="display:block; position:relative; top:1px; left:1px; width:31px; height:31px;"&gt;
+&lt;/div&gt;
 
-			
+&lt;!-- 黒い石 --&gt;
+&lt;div id="black" style="position:relative; width:33px; height:33px; background-color:#000;"&gt;
+&lt;img src="black.png" style="display:block; position:relative; top:1px; left:1px; width:31px; height:31px;"&gt;
+&lt;/div&gt;
+			</code>
+		</pre>
+	</div>
+	<p>
+	CSSの <code>style="position:relative;"</code> を <code>style="position:absolute;"</code> に変更し、JavaScriptのループ文を活用して8×8のボードを自動生成しました。<br>
+    各セルは <code>cloneNode</code> により複製され、ループ変数に応じて <code>left</code> と <code>top</code> を計算し、正しい位置に配置しています。<br>
+    これにより、HTMLとCSSだけでは難しい柔軟な盤面の生成や今後のゲームロジックの拡張も容易になります。
+	</p>
+	<div class="code-block">
+		<pre>
+			<code>
+&lt;script&gt;
+(function(){
+var piece;
+var showBoard = function(){
+	var b =document.getElementById("board");
+	while(b.firstChild){
+		b.removeChild(b.firstChild);
 
+	}
+	for(var y = 1; y &lt;= 8; y++){
+	for(var x = 1; x &lt;= 8; x++){
+		var c = piece[board[x][y]].cloneNode(true);
+		c.style.left = ((x - 1) * 32) + "px";
+		c.style.top = ((y - 1) * 32) + "px";
+		b.appendChild(c);
+	}
+	}
+};
 
-
+var board = [];
+onload = function(){
+	piece = [document.getElementById("cell")];
+	for(var i = 0;i &lt; 10; i++){
+		board[i]=[];
+		for(var j = 0;j &lt; 10; j++){
+		board[i][j] = 0;
+		}
+	}
+	showBoard();
+};
+})()
+&lt;/script&gt;
+		</code>
+	</pre>
+</div>
 	</main>
 	<!-- メインここまで -->
 	<footer class="footer">
