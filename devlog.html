@@ -41,7 +41,8 @@
 				を使ったリバーシゲームをを動画を見ながら作成しました
 			</string>
 		<h2>１日目</h2>
-			<p>今回、「<a href="https://www.nicovideo.jp/watch/sm8391299" target="_blank">
+			<p>
+				今回、「<a href="https://www.nicovideo.jp/watch/sm8391299" target="_blank">
 				【プログラミング】オセロを1時間で作ってみた【実況解説】</a>」という動画を参考に、リバーシゲームを作成しました。<br>
 				参考動画を見ながら、リバーシゲームのマスや石の描画をHTMLとCSSのみで行う実装に挑戦しました。<br>
 				簡素なコードで構造を作り、見た目を再現する過程で、HTML要素の入れ子構造やCSSのスタイル指定について理解を深められました。
@@ -75,7 +76,7 @@
 &lt;!-- 黒い石 --&gt;
 &lt;div id="black" style="position:relative; width:33px; height:33px; background-color:#000;"&gt;
 &lt;img src="black.png" style="display:block; position:relative; top:1px; left:1px; width:31px; height:31px;"&gt;
-&lt;/div&gt;
+&lt;/div&gt;piece
 			</code>
 		</pre>
 	</div>
@@ -119,10 +120,71 @@ onload = function(){
 };
 })()
 &lt;/script&gt;
+			</code>
+		</pre>
+	</div>
+	<h2>2日目</h2>
+
+	
+	<p>この日は、リバーシ盤面に「黒石」「白石」を初期配置する処理に加え、ユーザーが空いているマスをクリックして黒石を置けるようにしました。</p>
+
+		<h3>・盤面の初期表示を実装</h3>
+
+		
+		<p>以下のコードにより、盤面の中央に黒（1）と白（2）の駒をあらかじめ表示できるようになりました。配列 <code>board</code> に値をセットし、該当位置に駒が描画されます。</p>
+
+<div class="code-block">
+	<pre>
+		<code>
+piece = [
+  document.getElementById("cell"),
+  document.getElementById("black"),
+  document.getElementById("white")
+];
+board[4][5] = 1;
+board[5][4] = 1;
+board[4][4] = 2;
+board[5][5] = 2;
+  		</code>
+	</pre>
+</div>
+
+
+		<p>さらに、盤面の表示位置を制御するため、以下のような <code>&lt;div&gt;</code> 要素を追加しています。</p>
+
+
+	<div class="code-block">
+		<pre>
+			<code>
+&lt;div style="position:relative" id="board"&gt;&lt;/div&gt;
+			</code>
+		</pre>
+	</div>
+	<p>このように、初期化された盤面において駒が正しい位置に描画され、重ならずに整然と表示されるようになりました。</p>
+
+	<h3>・クリックで駒を置ける処理を追加</h3>
+	<p>さらに、空いているマス（値が 0 のマス）をクリックすると、そこに黒石（1）を置ける処理を追加しました。</p>
+
+<div class="code-block">
+	<pre>
+		<code>
+if (board[x][y] == 0) {
+  (function () {
+    var _x = x, _y = y;
+    c.onclick = function () {
+      board[_x][_y] = 1;
+      showBoard();
+    };
+  })();
+}
 		</code>
 	</pre>
 </div>
-	</main>
+
+
+<p>即時関数を使うことで、ループ内の変数 <code>x</code>・<code>y</code> のスコープを固定し、それぞれのマスに正しくクリックイベントが割り当てられます。</p>
+
+</main>
 	<!-- メインここまで -->
 	<footer class="footer">
 		<p>&copy;Copyright TEST HOME PAGE. ALL rights reserved.</p>
