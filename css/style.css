@@ -44,6 +44,10 @@ a:hover{
 a:active{
 		color: #ff6a3b;
 }
+img{
+  max-width: 100% !important;
+  height: auto !important;
+  }
 
 /* すべてのページに適応 - ヘッター - */
 .logo{
