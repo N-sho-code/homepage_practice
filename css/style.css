@@ -44,10 +44,6 @@ a:hover{
 a:active{
 		color: #ff6a3b;
 }
-img{
-  max-width: 100% !important;
-  height: auto !important;
-  }
 
 /* すべてのページに適応 - ヘッター - */
 .logo{
@@ -149,6 +145,10 @@ input[type="submit"]{
 				display: block;
 				padding-bottom: 1em;
 		}
+		img{
+  				max-width: 100% !important;
+  				height: auto !important;
+  		}
 }
 /*  フィルター機能用 CSS ここから  */
 #filter {
@@ -187,4 +187,5 @@ input[type="submit"]{
   white-space: pre-wrap;
   
 }
+
 
