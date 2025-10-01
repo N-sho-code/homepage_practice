@@ -11,7 +11,7 @@
 ![Hamburger button](https://github.com/N-sho-code/homepage_practice/blob/main/images/Hamburger%20button.gif)  
 **・フィルター機能**  
 ![Filter_function](https://github.com/N-sho-code/homepage_practice/blob/main/images/Filter_function.gif)  
-**利用ツール、利用サイト**
+**利用ツール、利用サイト**  
 ・Visual Studio Code  
 ・サクラエディタ  
 ・ペイント(Microsoft Paint)  
