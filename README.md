@@ -8,9 +8,11 @@
 ・あとから内容を増やしやすいように、HTMLの構造も整理して書くことを意識しました。  
 **実装機能**  
 **・ハンバーガボタンの表示(767px以下)**  
+  
 ![Hamburger button](https://github.com/N-sho-code/homepage_practice/blob/main/images/Hamburger%20button.gif)  
   
-**・フィルター機能**   
+**・フィルター機能**  
+  
 ![Filter_function](https://github.com/N-sho-code/homepage_practice/blob/main/images/Filter_function.gif)  
   
 **利用ツール、利用サイト**  
