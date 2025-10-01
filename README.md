@@ -19,7 +19,7 @@
 ***
 ・Visual Studio Code  
 ・サクラエディタ  
-・ペイント(Microsoft Paint)   
+・ペイント(Microsoft Paint)  
 ・Snipping Tool(画面キャプチャーツール)  
 ・ChatGPT  
 https://chatgpt.com/  
