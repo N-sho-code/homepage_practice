@@ -16,7 +16,11 @@
 			toggle.addEventListener('click', function () {
 			menu.classList.toggle('active');
 			});
+		});
+	</script>
+	<script>
 			// フィルター機能
+		document.addEventListener('DOMContentLoaded', function () {
 		const checkboxes = document.querySelectorAll('#filter input[type="checkbox"]');
       	const items = document.querySelectorAll('.work-item');
 
@@ -33,8 +37,9 @@
         });
       });
     });
+    </script>
 		
-		</script>
+		
 	<div class="wrapper">
 		<!-- ヘッター -->
 		<header class="header">
