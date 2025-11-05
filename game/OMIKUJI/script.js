@@ -6,10 +6,17 @@ function getRandomImage(){
 }
 
 function playOmikuji(){
-    setInterval(function(){
+    const timer = setInterval(function(){
         document.querySelector("#js-result").setAttribute("src",getRandomImage());
-    },1000);
+    },500);
+
+    setTimeout(function(){
+        clearInterval(timer);
+    },4000);
+
 }
+
+
 
 document.querySelector("#js-button").addEventListener("click",playOmikuji);
 
