@@ -62,8 +62,9 @@
 			<div id="filter">
 				<label><input type="checkbox" value="Web" checked> Web</label>
 				<label><input type="checkbox" value="game" checked> game</label>
-				<label><input type="checkbox" value="others" checked> others</label>
+				<label><input type="checkbox" value="others" checked> others</label><br>
 			</div>
+			<p style="text-align: center;">Webはブラウザだけで起動可能、gameはPCで起動可能、othersはその他</p>
 				<div class="work-item" data-category="Web">
 					<h2>リバーシ（Reversi）</h2>
 					<p><img src="images\Reversi_image.png" alt="読み込みエラー"></p>
@@ -138,43 +139,81 @@
 					</ul>
 				</div>
 		<!-- ▼ おみくじアプリ（Omikuji App） -->
-<div class="work-item" data-category="Web">
-    <h2>おみくじアプリ（Omikuji App）</h2>
-    <p><img src="images/omikuji.gif" alt="おみくじアプリのサムネイル"></p>
+			<div class="work-item" data-category="Web">
+				<h2>おみくじアプリ（Omikuji App）</h2>
+				<p><img src="images/omikuji.gif" alt="読み込みエラー"></p>
 
-    <p>
-        このおみくじアプリは、<strong>HTML・CSS・JavaScript</strong>で構築された
-        シンプルなブラウザアプリです。<br>
-        ボタンをクリックするだけで、毎回ランダムにおみくじの結果が表示されます。
-    </p>
+				<p>
+					このおみくじアプリは、<strong>HTML・CSS・JavaScript</strong>で構築された
+					シンプルなブラウザアプリです。<br>
+					ボタンをクリックするだけで、毎回ランダムにおみくじの結果が表示されます。
+				</p>
 
-    <h3>アプリリンク</h3>
-    <p>
-        <a href="game/OMIKUJI/omikuji.html" target="_blank">▶ おみくじを引く</a>
-    </p>
+				<h3>アプリリンク</h3>
+				<p>
+					<a href="game/OMIKUJI/omikuji.html" target="_blank">▶ おみくじを引く</a>
+				</p>
 
-    <h3>特徴</h3>
-    <ul>
-        <li>ボタンをクリックするだけで結果が変わる</li>
-        <li>ランダムに7種類の画像から結果を表示</li>
-        <li>インストール不要・ブラウザのみで動作</li>
-        <li>JavaScriptの基礎（イベント処理・乱数生成）を学習できます</li>
-    </ul>
+				<h3>特徴</h3>
+				<ul>
+					<li>ボタンをクリックするだけで結果が変わる</li>
+					<li>ランダムに7種類の画像から結果を表示</li>
+					<li>インストール不要・ブラウザのみで動作</li>
+					<li>JavaScriptの基礎（イベント処理・乱数生成）を学習できます</li>
+				</ul>
 
-    <h3>補足事項</h3>
-    <ul>
-        <li>画像は <code>images/omijikuji-0.png ～ omijikuji-6.png</code> の7種類を使用</li>
-        <li>「おみくじを引く」ボタンで結果が切り替わります</li>
-        <li>スマホ・PC両方に対応しています</li>
-    </ul>
+				<h3>補足事項</h3>
+				<ul>
+					<li>画像は <code>images/omijikuji-0.png ～ omijikuji-6.png</code> の7種類を使用</li>
+					<li>「おみくじを引く」ボタンで結果が切り替わります</li>
+					<li>スマホ・PC両方に対応しています</li>
+				</ul>
 
-    <h3>参考サイト</h3>
-    <ul>
-        <li>JavaScript入門・完全版コース／プログラミング初心者向け、コスパ最強講座</li>
-        <li>https://youtu.be/ig3GosWuKF0?si=-Z6EU3tHmQc3kZZX</li><br>
-    </ul>
-</div>
-<!-- ▲ おみくじアプリ -->
+				<h3>参考サイト</h3>
+				<ul>
+					<li>【2025年最新】JavaScript初心者もできる！おみくじアプリを作ろう #プログラミング</li>
+					<li><a href="https://youtu.be/lEk_NxeP1vw?si=z-FzRiaLUNwUiRIE" target="_blank">https://youtu.be/lEk_NxeP1vw?si=z-FzRiaLUNwUiRIE</a></li><br>
+				</ul>
+			</div>
+		<!-- ▲ おみくじアプリ -->
+
+		<!-- ▼ ライフゲームアプリ（lifegame App） -->
+		<div class="work-item" data-category="Web">
+			<h2>ライフゲーム（lifegame app）</h2>
+			<p><img src="images/lifegame.gif" alt="読み込みエラー"></p>
+
+			<p>
+				このアプリは、<strong>HTML・JavaScript</strong>で動作するライフゲーム（セル・オートマトン）です。<br>
+				キャンバス上に配置されたセルが、「生存」「誕生」「死滅」のルールに従って自動的に変化していきます。
+			</p>
+
+			<h3>アプリリンク</h3>
+			<p>
+				<a href="game/life-game/index.html" target="_blank">▶ ライフゲームを実行する</a>
+			</p>
+
+			<h3>特徴</h3>
+			<ul>
+				<li><strong>Start / Stop ボタン</strong>でシミュレーション制御</li>
+				<li><strong>Random ボタン</strong>でランダム初期配置を生成</li>
+				<li>JavaScriptだけで動作し、インストール不要</li>
+				<li>セルの更新処理・描画・ループ処理など基礎的な実装を学べます</li>
+			</ul>
+
+			<h3>仕様・実装ポイント</h3>
+			<ul>
+				<li>盤面は 100×100 のグリッドで管理</li>
+				<li><code>setTimeout</code> を用いたフレーム更新処理</li>
+				<li><code>canvas</code> によるセル描画</li>
+				<li>二重配列 <code>field</code> と <code>nextField</code> による状態更新</li>
+			</ul>
+			<h3>参考情報</h3>
+			<ul>
+				<li>ライフゲームを15分で作ってみた【JavaScript実況プログラミング】</li>
+				<li><a href="https://youtu.be/cpqjVmu9Ghg?si=wFTSS9BRSAn0b8Ob" target="_blank">https://youtu.be/cpqjVmu9Ghg?si=wFTSS9BRSAn0b8Ob</a></li>
+			</ul>
+		</div>
+		<!-- ▲ ライフゲームアプリ -->
 
 	</main>
 	<footer class="footer">
