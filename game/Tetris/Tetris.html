@@ -40,46 +40,97 @@
         //ミノの座標
         let tetro_x = 0;
         let tetro_y = 0;
-        drawTetro();
+        //フィールド中身
+        let field =[];
+    
+    init();
+    drawAll();
+    
+    //初期化
+    function init(){
+        //フィールドクリア
+        for(let y=0;y<FIELD_ROW;y++) {
+            field[y] = [];
+                for(let x=0;x<FIELD_COL;x++) {
+                    field[y][x]=0;
+            }
+        }
+        //仮置き
+        field[19][0]=1;
+        field[19][9]=1;
+    }
+    //ブロックを描画する
+    function drawBlock(x,y) {
+        let px =x*BLOCK_SIZE;
+        let py =y*BLOCK_SIZE;
+        con.fillStyle="red";
+        con.fillRect(px,py,BLOCK_SIZE,BLOCK_SIZE);
+        con.strokeStyle="black";
+        con.strokeRect(px,py,BLOCK_SIZE,BLOCK_SIZE);
 
-        //ミノを表示する
-        function drawTetro() {
+    }
+
+    //全部を描画する
+    function drawAll() {
             con.clearRect(0,0,SCREEN_W,SCREEN_H);
-            for(let y=0;y<TETRO_SIZE;y++) {
-                for(let x=0;x<TETRO_SIZE;x++) {
-                    if(tetro[y][x]) {
-                        let px =(tetro_x+x)*BLOCK_SIZE;
-                        let py =(tetro_y+y)*BLOCK_SIZE;
-                        con.fillStyle="red";
-                        con.fillRect(px,py,BLOCK_SIZE,BLOCK_SIZE);
-                        con.strokeStyle="black";
-                        con.strokeRect(px,py,BLOCK_SIZE,BLOCK_SIZE)
+            for(let y=0;y<FIELD_ROW;y++) {
+                for(let x=0;x<FIELD_COL;x++) {
+                    if(field[y][x]) {
+                        drawBlock(x,y);
                     }
                 }
             }
-    }
-    //キーボードが押された時の処理
+
+            for(let y=0;y<TETRO_SIZE;y++) {
+                for(let x=0;x<TETRO_SIZE;x++) {
+                    if(tetro[y][x]) {
+                        drawBlock(tetro_x+x,tetro_y+y);
+                    }
+                }
+            }
+        }
+        //ブロック衝突判定
+        function checkMove(mx,my){
+            for(let y=0;y<TETRO_SIZE;y++) {
+                for(let x=0;x<TETRO_SIZE;x++) {
+                    let nx = tetro_x +mx +x;
+                    let ny = tetro_y +my +y;
+                    if(tetro[y][x]){
+                        if( field[ny][nx] ||
+                            ny < 0 ||
+                            nx < 0 ||
+                            ny >= FIELD_ROW ||
+                            nx >= FIELD_COL) {
+                        return false;
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+        //キーボードが押された時の処理
         document.onkeydown = function(e) {
         
             switch(e.keyCode){
                 case 37:// 左
-                    tetro_x--;
+                if(checkMove(-1,0))tetro_x--;               
                     break;
                 case 38:// 上
-                    tetro_y--;
+                if(checkMove(0,-1))tetro_y--;
                     break;
                 case 39:// 右
-                    tetro_x++;
+                if(checkMove(1,0))tetro_x++;
                     break;
                 case 40:// 下
-                    tetro_y++;
-
+                if(checkMove(0,1))tetro_y++;
                     break;
                 case 32:// スペース
                     break;
 
             }
-            drawTetro();
+            
+            drawAll();
+
         }
 
     </script>
