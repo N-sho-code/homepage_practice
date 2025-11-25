@@ -35,3 +35,5 @@ https://rakko.tools/tools/86/
 https://qiita.com/teradonburi/items/43c52d7cffc318e9b1e9  
 ・ライフゲームを15分で作ってみた【JavaScript実況プログラミング】  
 https://youtu.be/cpqjVmu9Ghg?si=wFTSS9BRSAn0b8Ob  
+・プログラミング講座@youtube(テトリス制作)  
+https://aki28.com/  
