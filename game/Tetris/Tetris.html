@@ -8,6 +8,8 @@
 <body>
     <canvas id="can"></canvas>
     <script>
+        //落ちるスピード(デフォルト)
+        const GAME_SPEED = 700;
 
         //フィールドサイズ
         const FIELD_COL = 10;
@@ -45,6 +47,7 @@
     
     init();
     drawAll();
+    setInterval(dropTetro,GAME_SPEED);
     
     //初期化
     function init(){
@@ -90,17 +93,19 @@
             }
         }
         //ブロック衝突判定
-        function checkMove(mx,my){
+        function checkMove(mx,my,ntetro){
+            if(ntetro==undefined)ntetro =tetro;
             for(let y=0;y<TETRO_SIZE;y++) {
                 for(let x=0;x<TETRO_SIZE;x++) {
-                    let nx = tetro_x +mx +x;
-                    let ny = tetro_y +my +y;
-                    if(tetro[y][x]){
-                        if( field[ny][nx] ||
+                    if(ntetro[y][x]){
+                        let nx = tetro_x +mx +x;
+                        let ny = tetro_y +my +y;
+                        if( 
                             ny < 0 ||
                             nx < 0 ||
                             ny >= FIELD_ROW ||
-                            nx >= FIELD_COL) {
+                            nx >= FIELD_COL||
+                            field[ny][nx] ) {
                         return false;
                         }
                     }
@@ -108,6 +113,7 @@
             }
             return true;
         }
+        //テトロの回転
         function rotate() {
             let ntetro = [];
             for(let y=0;y<TETRO_SIZE;y++) {
@@ -117,6 +123,26 @@
                 }
             }
             return ntetro;
+        }
+        function fixTetoro(){
+            for(let y=0;y<TETRO_SIZE;y++) {
+                for(let x=0;x<TETRO_SIZE;x++) {
+                    if(tetro[y][x]){
+                        field[tetro_y+y][tetro_x+x] =1;
+                    }
+                }
+            }
+
+        }
+        //ブロック落下処理
+        function dropTetro(){
+            if(checkMove(0,1))tetro_y++;
+            else{
+                fixTetoro();
+                tetro_x =0;
+                tetro_y =0;
+            }
+            drawAll();
         }
 
         //キーボードが押された時の処理
@@ -136,7 +162,8 @@
                 if(checkMove(0,1))tetro_y++;
                     break;
                 case 32:// スペース
-                    tetro = rotate();
+                    let ntetro = rotate();
+                    if(checkMove(0,0,ntetro))tetro = ntetro;
                     break;
 
             }
