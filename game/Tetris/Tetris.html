@@ -31,20 +31,72 @@
         can.width           = SCREEN_W;
         can.height          = SCREEN_H;
         can.style.border    = "4px solid #000"
+
         
-        //ミノの本体
-        let tetro = [
-            [0,0,0,0],
-            [1,1,0,0],
-            [0,1,1,0],
-            [0,0,0,0]
+        
+        const TETRO_TYPES = [
+            [],             // 0.空
+            [               // 1.I
+                [0,0,0,0],
+                [1,1,1,1],
+                [0,0,0,0],
+                [0,0,0,0]
+            ],
+            [               // 2.L
+                [0,1,0,0],
+                [0,1,0,0],
+                [0,1,1,0],
+                [0,0,0,0]
+            ],
+            [               //3. J
+                [0,0,1,0],
+                [0,0,1,0],
+                [0,1,1,0],
+                [0,0,0,0]
+            ],
+            [               //4. T
+                [0,1,0,0],
+                [0,1,1,0],
+                [0,1,0,0],
+                [0,0,0,0]
+            ],
+            [               //5. O
+                [0,0,0,0],
+                [0,1,1,0],
+                [0,1,1,0],
+                [0,0,0,0]
+            ],
+            [               //6. Z
+                [0,0,0,0],
+                [1,1,0,0],
+                [0,1,1,0],
+                [0,0,0,0]
+            ],
+            [               //7. S
+                [0,0,0,0],
+                [0,1,1,0],
+                [1,1,0,0],
+                [0,0,0,0]
+            ],
+
         ];
+
+        const START_X =FIELD_COL/2-TETRO_SIZE/2;
+        const START_Y = 0;
+
+        //ミノの本体
+        let tetro;
         //ミノの座標
-        let tetro_x = 0;
-        let tetro_y = 0;
+        let tetro_x = START_X;
+        let tetro_y = START_Y;
+        //ミノの形
+        let tetro_t;
         //フィールド中身
         let field =[];
-    
+
+    tetro_t=Math.floor(Math.random()*(TETRO_TYPES.length-1))+1;
+    tetro =TETRO_TYPES[tetro_t];
+
     init();
     drawAll();
     setInterval(dropTetro,GAME_SPEED);
@@ -139,8 +191,10 @@
             if(checkMove(0,1))tetro_y++;
             else{
                 fixTetoro();
-                tetro_x =0;
-                tetro_y =0;
+                tetro_t=Math.floor(Math.random()*(TETRO_TYPES.length-1))+1;
+                tetro =TETRO_TYPES[tetro_t];
+                tetro_x =START_X;
+                tetro_y =START_Y;
             }
             drawAll();
         }
