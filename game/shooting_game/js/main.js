@@ -30,6 +30,75 @@ let camer_x =0;
 let camer_y =0;
 //星
 let star=[];
+//キーボードの状態
+let key=[];
+
+document.onkeydown =function(e){
+    key[e.keyCode] = true;
+}
+//キーボードが離された解き
+document.onkeyup =function(e){
+    key[e.keyCode] = false;
+}
+//自機クラス
+class Jiki{
+    constructor(){
+        this.x  =(FIELD_W/2)<<8;
+        this.y  =(FIELD_H/2)<<8;
+        this.speed =512;
+        this.anime = 0;
+    }
+    update(){
+        if(key[37])this.x -=this.speed;
+        if(key[38])this.y -=this.speed;
+        if(key[39])this.x +=this.speed;
+        if(key[40])this.y +=this.speed;
+
+
+    }
+    draw(){
+        drawSprote(2+this.anime,this.x,this.y);
+    }
+}
+let jiki = new Jiki();
+
+//ファイルを読み込み
+let sproteImage = new Image();
+sproteImage.src ="images/sprite.png";
+
+//スプライトクラス
+class Sprite{
+    constructor(x,y,w,h){
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
+    }
+}
+//スプライト
+let sprite = [
+    new Sprite(0,0,22,42),
+    new Sprite(23,0,33,42),
+    new Sprite(57,0,43,42),
+    new Sprite(101,0,33,42),
+    new Sprite(135,0,21,42),
+];
+//スプライト描画
+function drawSprote(snum,x,y){
+    let sx = sprite[snum].x;
+    let sy = sprite[snum].y;
+    let sw = sprite[snum].w;
+    let sh = sprite[snum].h;
+    
+    let px = (x>>8)-sw/2;
+    let py = (y>>8)-sh/2;
+
+    if(px+sw/2<camer_x||px-sw/2>=camer_x+SCREEN_W
+        ||py+sh/2<camer_y||py-sh/2>=camer_y+SCREEN_H)return;
+
+    vcon.drawImage(sproteImage,sx,sy,sw,sh,px,py,sw,sh);
+}
+
 //整数を作る
 function rand(min,max){
     return Math.floor(Math.random()*(max-min+1))+min;
@@ -70,17 +139,19 @@ function gameInit(){
 function gameLoop(){
     //移動処理
     for(i=0;i<STAR_MAX;i++)star[i].update();
+    jiki.update();
     //描画処処理
     vcon.fillStyle="#000";
     vcon.fillRect(0,0,SCREEN_W,SCREEN_H);
     for(i=0;i<STAR_MAX;i++)star[i].draw();
+    jiki.draw();
 
     //仮想画面空実際のキャンパスにコピー
     con.drawImage(vcan,camer_x,camer_y,SCREEN_W,SCREEN_H,
         0,0,CANVAS_W,CANVAS_H);
 }
-オンロードで開始
-window.onalaed=function(){
-    gemeInit();
+//オンロードで開始
+window.onload=function(){
+    gameInit();
 }
 
