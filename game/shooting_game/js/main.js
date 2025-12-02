@@ -26,8 +26,8 @@ let vcon = vcan.getContext("2d");
 vcan.width =CANVAS_W;
 vcan.height =CANVAS_H;
 //カメラの座標
-let camer_x =0;
-let camer_y =0;
+let camera_x =0;
+let camera_y =0;
 //星
 let star=[];
 //キーボードの状態
@@ -48,16 +48,31 @@ class Jiki{
         this.speed =512;
         this.anime = 0;
     }
+
+    //自機の移動
     update(){
-        if(key[37])this.x -=this.speed;
-        if(key[38])this.y -=this.speed;
-        if(key[39])this.x +=this.speed;
-        if(key[40])this.y +=this.speed;
+        if(key[37]&&this.x>this.speed){
+            this.x -=this.speed;
+            if(this.anime>-8)this.anime--;
+        }else if(key[39]&&this.x<=(FIELD_W<<8)-this.speed){
+            this.x +=this.speed;
+            if(this.anime<8)this.anime++;
+        }
+        else{
+            if(this.anime>0)this.anime--;
+            if(this.anime<0)this.anime++;
+        }
+        if(key[38]&&this.y>this.speed)
+        this.y -=this.speed;
+        
+        if(key[40]&&this.y<=(FIELD_H<<8)-this.speed)
+        this.y +=this.speed;
 
 
     }
+    //描画
     draw(){
-        drawSprote(2+this.anime,this.x,this.y);
+        drawSprote(2+(this.anime>>2),this.x,this.y);
     }
 }
 let jiki = new Jiki();
@@ -93,8 +108,8 @@ function drawSprote(snum,x,y){
     let px = (x>>8)-sw/2;
     let py = (y>>8)-sh/2;
 
-    if(px+sw/2<camer_x||px-sw/2>=camer_x+SCREEN_W
-        ||py+sh/2<camer_y||py-sh/2>=camer_y+SCREEN_H)return;
+    if(px+sw/2<camera_x||px-sw/2>=camera_x+SCREEN_W
+        ||py+sh/2<camera_y||py-sh/2>=camera_y+SCREEN_H)return;
 
     vcon.drawImage(sproteImage,sx,sy,sw,sh,px,py,sw,sh);
 }
@@ -115,8 +130,8 @@ class Star{
     draw(){
         let x=this.x>>8;
         let y=this.y>>8
-        if(x<camer_x||x>=camer_x+SCREEN_W
-           ||y<camer_y||y>=camer_y+SCREEN_H)return;
+        if(x<camera_x||x>=camera_x+SCREEN_W
+           ||y<camera_y||y>=camera_y+SCREEN_H)return;
         vcon.fillStyle=rand(0,2)!=0?"#66f":"#8af";
         vcon.fillRect(this.x>>8,this.y>>8,this.sz,this.sz);
     }
@@ -142,12 +157,16 @@ function gameLoop(){
     jiki.update();
     //描画処処理
     vcon.fillStyle="#000";
-    vcon.fillRect(0,0,SCREEN_W,SCREEN_H);
+    vcon.fillRect(camera_x,camera_y,SCREEN_W,SCREEN_H);
     for(i=0;i<STAR_MAX;i++)star[i].draw();
     jiki.draw();
+    //自機の範囲 0～ FIELD_W
+    //カメラの範囲 0～ (FIELD_W-SCREEN_W)
+    camera_x = (jiki.x>>8)/FIELD_W * (FIELD_W-SCREEN_W);
+    camera_y = (jiki.y>>8)/FIELD_H * (FIELD_H-SCREEN_H);
 
     //仮想画面空実際のキャンパスにコピー
-    con.drawImage(vcan,camer_x,camer_y,SCREEN_W,SCREEN_H,
+    con.drawImage(vcan,camera_x,camera_y,SCREEN_W,SCREEN_H,
         0,0,CANVAS_W,CANVAS_H);
 }
 //オンロードで開始
