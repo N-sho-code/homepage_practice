@@ -30,7 +30,19 @@ body {
     /*色*/
     background-color: green;
     box-shadow: none !important;
+    /*フォントサイズ*/
+    font-size: 2.5rem;
 }
+.square[data-owner="black"] {
+    color: #000;
+}
+.square[data-owner="white"] {
+    color: #fff;
+}
+.cant-select {
+    background-color: green !important;
+}
+
 #controller {
     /*配置*/
     position: fixed;
