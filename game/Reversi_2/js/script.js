@@ -80,10 +80,10 @@ function changeOwnerOpposite (square){
     changeOwnerOppositeLower(row,col);  // 下
     changeOwnerOppositeLeft(row,col);
     changeOwnerOppositeRight(row,col);
- /*   changeOwnerOppositeUpperLeft(row,col);
+    changeOwnerOppositeUpperLeft(row,col);
     changeOwnerOppositeUpperRight(row,col);
     changeOwnerOppositeLowerLeft(row,col);
-    changeOwnerOppositeLowerRight(row,col);*/
+    changeOwnerOppositeLowerRight(row,col);
 }
 /*所有者変更（上）*/
 function changeOwnerOppositeUpper(row,col) {
@@ -96,8 +96,8 @@ function changeOwnerOppositeUpper(row,col) {
     /*対向先まで所有者を変更する*/
     let targetCol = col;
     for(targetRow = row -1;endPos.row<targetRow;targetRow--){
-        let targetSquare =getTargetSquare(targetRow,targetCol);
-        putPlece(targetSquare,getTurnString());
+        let Square =getTargetSquare(targetRow,targetCol);
+        putPlece(Square,getTurnString());
     }
 }
 /*対向の所有マスの位置取得(上)*/
@@ -106,6 +106,7 @@ function getPosOppositeUpper(row,col){
     if(row==0){
         return null;
     }
+    //隣接マスが相手所有げない場合対向先が存在しない
     let targetRow = row -1;
     let targetCol = col;
     if(getSquareStatus(targetRow,targetCol)!=SQUARE_START_IS_OTHER){
@@ -114,13 +115,13 @@ function getPosOppositeUpper(row,col){
     //対向先の有無の判定
     for(targetRow--;0<=targetRow;targetRow--){
         //マス目の状態を取得する
-        let status = getSquareStatus(targetRow,targetCol);
+        let squareType = getSquareStatus(targetRow,targetCol);
         //選択されていないマス目に到達したら終了
-        if(status ==SQUARE_START_NOT_SELECTED){
+        if(squareType ==SQUARE_START_NOT_SELECTED){
             return null;
         }
         //自分の所有マスに到達したら、位置の返却
-        if(status ==SQUARE_START_IS_OWNED) {
+        if(squareType ==SQUARE_START_IS_OWNED) {
             return {
                 row : targetRow,
                 col : targetCol,
@@ -152,6 +153,7 @@ function getPosOppositeLower(row,col){
     if(row==7){
         return null;
     }
+    //隣接マスが相手所有げない場合対向先が存在しない
     let targetRow = row +1;
     let targetCol = col;
     if(getSquareStatus(targetRow,targetCol)!=SQUARE_START_IS_OTHER){
@@ -187,8 +189,8 @@ function changeOwnerOppositeLeft(row,col) {
     /*対向先まで所有者を変更する*/
     let targetRow = row;
     for(targetCol = col -1;endPos.col<targetCol;targetCol--){
-        let targetSquare =getTargetSquare(targetRow,targetCol);
-        putPlece(targetSquare,getTurnString());
+        let square =getTargetSquare(targetRow,targetCol);
+        putPlece(square,getTurnString());
     }
 }
 /*対向の所有マスの位置取得(左)*/
@@ -197,6 +199,7 @@ function getPosOppositeLeft(row,col){
     if(col==0){
         return null;
     }
+    //隣接マスが相手所有げない場合対向先が存在しない
     let targetRow = row;
     let targetCol = col -1;
     if(getSquareStatus(targetRow,targetCol)!=SQUARE_START_IS_OTHER){
@@ -205,13 +208,13 @@ function getPosOppositeLeft(row,col){
     //対向先の有無の判定
     for(targetCol--;0<=targetCol;targetCol--){
         //マス目の状態を取得する
-        let status = getSquareStatus(targetRow,targetCol);
+        let squareType = getSquareStatus(targetRow,targetCol);
         //選択されていないマス目に到達したら終了
-        if(status ==SQUARE_START_NOT_SELECTED){
+        if(squareType ==SQUARE_START_NOT_SELECTED){
             return null;
         }
         //自分の所有マスに到達したら、位置の返却
-        if(status ==SQUARE_START_IS_OWNED) {
+        if(squareType ==SQUARE_START_IS_OWNED) {
             return {
                 row : targetRow,
                 col : targetCol,
@@ -232,8 +235,8 @@ function changeOwnerOppositeRight(row,col) {
     /*対向先まで所有者を変更する*/
     let targetRow = row;
     for(targetCol = col +1;targetCol<endPos.col;targetCol++){
-        let targetSquare =getTargetSquare(targetRow,targetCol);
-        putPlece(targetSquare,getTurnString());
+        let square =getTargetSquare(targetRow,targetCol);
+        putPlece(square,getTurnString());
     }
 }
 /*対向の所有マスの位置取得(右)*/
@@ -242,6 +245,7 @@ function getPosOppositeRight(row,col){
     if(col==7){
         return null;
     }
+    //隣接マスが相手所有げない場合対向先が存在しない
     let targetRow = row;
     let targetCol = col +1;
     if(getSquareStatus(targetRow,targetCol)!=SQUARE_START_IS_OTHER){
@@ -249,6 +253,57 @@ function getPosOppositeRight(row,col){
     } 
     //対向先の有無の判定
     for(targetCol++;targetCol<=7;targetCol++){
+        //マス目の状態を取得する
+        let squareType = getSquareStatus(targetRow,targetCol);
+        //選択されていないマス目に到達したら終了
+        if(squareType ==SQUARE_START_NOT_SELECTED){
+            return null;
+        }
+        //自分の所有マスに到達したら、位置の返却
+        if(squareType ==SQUARE_START_IS_OWNED) {
+            return {
+                row : targetRow,
+                col : targetCol,
+            };
+        }
+    }
+    return null;
+}
+
+/*所有者変更（左上）*/
+function changeOwnerOppositeUpperLeft(row,col) {
+    //対向先を取得
+    let endPos = getPosOppositeUpperLeft(row,col);
+    if(endPos ==null) {
+        return;
+    }
+
+    /*対向先まで所有者を変更する*/
+   
+    for(targetRow = row -1,targetCol = col -1;
+        endPos.row<targetRow&&endPos.col<targetCol;
+        targetRow--,targetCol--){
+        let square = getTargetSquare(targetRow,targetCol);
+        putPlece(square,getTurnString());
+    }
+}
+/*対向の所有マスの位置取得(左上)*/
+function getPosOppositeUpperLeft(row,col){
+    //基準マスが最端の場合対向先が存在しない
+    if(row==0||col==0){
+        return null;
+    }
+    //隣接マスが相手所有げない場合対向先が存在しない
+
+    let targetRow = row -1;
+    let targetCol = col -1;
+    if(getSquareStatus(targetRow,targetCol)!=SQUARE_START_IS_OTHER){
+        return null;
+    } 
+    //対向先の有無の判定
+    for(targetRow--,targetCol--;
+        0<=targetRow&&0<=targetCol;
+        targetRow--,targetCol--){
         //マス目の状態を取得する
         let status = getSquareStatus(targetRow,targetCol);
         //選択されていないマス目に到達したら終了
@@ -265,6 +320,155 @@ function getPosOppositeRight(row,col){
     }
     return null;
 }
+
+/*所有者変更（右上）*/
+function changeOwnerOppositeUpperRight(row,col) {
+    //対向先を取得
+    let endPos = getPosOppositeUpperRight(row,col);
+    if(endPos ==null) {
+        return;
+    }
+
+    /*対向先まで所有者を変更する*/
+    for(targetRow = row -1,targetCol = col +1;
+        endPos.row<targetRow&&targetCol<endPos.col;
+        targetRow--,targetCol++){
+        let square = getTargetSquare(targetRow,targetCol);
+        putPlece(square,getTurnString());
+    }
+}
+/*対向の所有マスの位置取得(右上)*/
+function getPosOppositeUpperRight(row,col){
+    //基準マスが最端の場合対向先が存在しない
+    if(row==0||col==7){
+        return null;
+    }
+    //隣接マスが相手所有げない場合対向先がそんざいしない
+    let targetRow = row -1;
+    let targetCol = col +1;
+    if(getSquareStatus(targetRow,targetCol)!=SQUARE_START_IS_OTHER){
+        return null;
+    } 
+    //対向先の有無の判定
+    for(targetRow--,targetCol++;
+        0<=targetRow&&targetCol<=7;
+        targetRow--,targetCol++){
+        //マス目の状態を取得する
+        let squareType = getSquareStatus(targetRow,targetCol);
+        //選択されていないマス目に到達したら終了
+        if(squareType ==SQUARE_START_NOT_SELECTED){
+            return null;
+        }
+        //自分の所有マスに到達したら、位置の返却
+        if(squareType ==SQUARE_START_IS_OWNED) {
+            return {
+                row : targetRow,
+                col : targetCol,
+            };
+        }
+    }
+    return null;
+}
+
+/*所有者変更（左下）*/
+function changeOwnerOppositeLowerLeft(row,col) {
+    //対向先を取得
+    let endPos = getPosOppositeLowerLeft(row,col);
+    if(endPos ==null) {
+        return;
+    }
+
+    /*対向先まで所有者を変更する*/
+    for(targetRow = row +1,targetCol = col -1;
+        endPos.row<targetRow,endPos.col<targetCol;
+        targetRow++,targetCol--){
+        let square = getTargetSquare(targetRow,targetCol);
+        putPlece(square,getTurnString());
+    }
+}
+/*対向の所有マスの位置取得(左下)*/
+function getPosOppositeLowerLeft(row,col){
+    //基準マスが最端の場合対向先が存在しない
+    if(row==7||col==0){
+        return null;
+    }
+    //隣接マスが相手所有げない場合対向先がそんざいしない
+    let targetRow = row +1;
+    let targetCol = col -1;
+    if(getSquareStatus(targetRow,targetCol)!=SQUARE_START_IS_OTHER){
+        return null;
+    } 
+    //対向先の有無の判定
+    for(targetRow++,targetCol--;
+        targetRow<=7,0<=targetCol;
+        targetRow++,targetCol--){
+        //マス目の状態を取得する
+        let squareType = getSquareStatus(targetRow,targetCol);
+        //選択されていないマス目に到達したら終了
+        if(squareType ==SQUARE_START_NOT_SELECTED){
+            return null;
+        }
+        //自分の所有マスに到達したら、位置の返却
+        if(squareType ==SQUARE_START_IS_OWNED) {
+            return {
+                row : targetRow,
+                col : targetCol,
+            };
+        }
+    }
+    return null;
+}
+
+/*所有者変更（右下）*/
+function changeOwnerOppositeLowerRight(row,col) {
+    //対向先を取得
+    let endPos = getPosOppositeLowerRight(row,col);
+    if(endPos ==null) {
+        return;
+    }
+
+    /*対向先まで所有者を変更する*/
+    
+    for(targetRow = row +1,targetCol = col +1;
+        endPos.row<targetRow,targetCol<endPos.col;
+        targetRow++,targetCol++){
+        let square = getTargetSquare(targetRow,targetCol);
+        putPlece(square,getTurnString());
+    }
+}
+/*対向の所有マスの位置取得(右下)*/
+function getPosOppositeLowerRight(row,col){
+    //基準マスが最端の場合対向先が存在しない
+    if(row==7||col==7){
+        return null;
+    }
+    //隣接マスが相手所有げない場合対向先が存在しない
+    let targetRow = row +1;
+    let targetCol = col +1;
+    if(getSquareStatus(targetRow,targetCol)!=SQUARE_START_IS_OTHER){
+        return null;
+    } 
+    //対向先の有無の判定
+    for(targetRow++,targetCol++;
+        targetRow<=7,targetCol<=7;
+        targetRow++,targetCol++){
+        //マス目の状態を取得する
+        let squareType = getSquareStatus(targetRow,targetCol);
+        //選択されていないマス目に到達したら終了
+        if(squareType ==SQUARE_START_NOT_SELECTED){
+            return null;
+        }
+        //自分の所有マスに到達したら、位置の返却
+        if(squareType ==SQUARE_START_IS_OWNED) {
+            return {
+                row : targetRow,
+                col : targetCol,
+            };
+        }
+    }
+    return null;
+}
+
 
 /*調査対象のマス目の状態取得*/
 function getSquareStatus(row,col) {
