@@ -39,3 +39,7 @@ https://youtu.be/cpqjVmu9Ghg?si=wFTSS9BRSAn0b8Ob
 https://aki28.com/  
 ・【プログラミング入門】オセロゲームを作ろう！-総集編-【HTML/CSS/JavaScript】  
 https://youtu.be/Knbc0SRP2xs?si=6FGoAgYcadE1gtd2  
+・Javascriptゲームプログラミング初級【ブロック崩し】if文・for文・関数・Gameの基礎・アニメーションについて学べます。  
+　Javascript入門 | ジャバスクリプト初心者 ゲーム開発  
+https://youtu.be/g2FlXCSy0yI?si=9Cm1PQlaGLmFXxHF  
+
