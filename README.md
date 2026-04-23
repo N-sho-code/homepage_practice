@@ -1,27 +1,22 @@
 # homepage_practice
-**目的**  
-***
+## 目的  
 自身の学習成果や開発経験をまとめ、
 就職活動で自分のスキルや成長をわかりやすく伝えるために作成しました。  
 
-**工夫したこと**  
-***
+## 工夫したこと  
 ・初めて見る人でも迷わないように、シンプルで見やすいレイアウトを心がけました。  
 ・スマホでも見やすくなるよう、レスポンシブ対応とハンバーガーメニューを取り入れました。  
 ・制作物が増えても見やすいように、カテゴリ別に絞り込みができるフィルター機能をつけてみました。  
 ・あとから内容を増やしやすいように、HTMLの構造も整理して書くことを意識しました。  
   
-**実装機能**  
-**・ハンバーガボタンの表示(767px以下)**  
-  
+## 実装機能  
+・ハンバーガボタンの表示(767px以下)  
 ![Hamburger button](https://github.com/N-sho-code/homepage_practice/blob/main/images/Hamburger%20button.gif)  
-  
-**・フィルター機能**  
+## ・フィルター機能  
   
 ![Filter_function](https://github.com/N-sho-code/homepage_practice/blob/main/images/Filter_function.gif)  
   
-**利用ツール、利用サイト**  
-***
+## 利用ツール、利用サイト  
 ・Visual Studio Code  
 ・サクラエディタ  
 ・ペイント(Microsoft Paint)  
@@ -43,4 +38,3 @@ https://youtu.be/Knbc0SRP2xs?si=6FGoAgYcadE1gtd2
 ・Javascriptゲームプログラミング初級【ブロック崩し】if文・for文・関数・Gameの基礎・アニメーションについて学べます。  
 　Javascript入門 | ジャバスクリプト初心者 ゲーム開発  
 https://youtu.be/g2FlXCSy0yI?si=9Cm1PQlaGLmFXxHF  
-
