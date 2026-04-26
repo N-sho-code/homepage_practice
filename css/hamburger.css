@@ -1,0 +1,19 @@
+/* 全てのページに適応 - ハンバーガボタン - */
+.nav-menu {
+	display: none;
+	flex-direction: column;
+	background: #fff;
+	padding: 10px;
+}
+
+.menu-toggle {
+	font-size: 36px;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+/* メニューが表示される時のクラス */
+.nav-menu.active {
+	display: flex;
+}

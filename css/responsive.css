@@ -1,0 +1,38 @@
+/* スマートフォン向けCSS */
+@media (max-width: 767px) {
+
+	/* 全体 - ナビゲーション */
+	.wrapper {
+		margin: 0 8px;
+	}
+
+	.logo {
+		margin: 30px 0;
+	}
+
+	.logo img {
+		width: 200px;
+	}
+
+	.nav {
+		background-color: #dfddda;
+	}
+
+	.nav li {
+		display: block;
+		padding-bottom: 1em;
+	}
+}
+
+/* PCサイズでは常にメニュー表示 & ボタン非表示 */
+@media screen and (min-width: 768px) {
+	.nav-menu {
+		display: flex;
+		flex-direction: row;
+		gap: 15px;
+	}
+
+	.menu-toggle {
+		display: none;
+	}
+}
