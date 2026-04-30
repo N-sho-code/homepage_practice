@@ -15,7 +15,17 @@
 ## ・フィルター機能  
   
 ![Filter_function](https://github.com/N-sho-code/homepage_practice/blob/main/images/Filter_function.gif)  
-  
+
+## 苦労したこと
+・ハンバーガーメニューがPC表示時にも影響してしまい、CSSの条件分岐の整理に苦労しました  
+
+## 実行環境
+・OS：Windows 10 / Windows 11  
+・ブラウザ：Google Chrome / Microsoft Edge（最新版）  
+・開発環境：Visual Studio Code  
+
+## 動作確認
+・Google Chrome（Windows）で動作確認済み  
 ## 利用ツール、利用サイト  
 ・Visual Studio Code  
 ・サクラエディタ  
