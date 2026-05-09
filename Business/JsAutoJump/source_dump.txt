@@ -1,0 +1,39 @@
+----------------------------------------
+ファイル名 index.html
+----------------------------------------
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>INDEX</h1>
+    <script src="js/script.js"></script>
+</body>
+</html>
+
+----------------------------------------
+ファイル名 second.html
+----------------------------------------
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>second</h1>
+</body>
+</html>
+
+----------------------------------------
+ファイル名 script.js
+----------------------------------------
+console.log(location.href);
+setTimeout(() => {
+    location.href ="second.html";
+}, 10000);.
+.
