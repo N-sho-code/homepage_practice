@@ -1,0 +1,23 @@
+    /* 全体のフォントや背景色 */
+    body {
+        font-family: sans-serif;
+        background-color: #f0f0f0;
+    }
+
+    /* ツールを囲む白い箱のデザイン */
+    div {
+        max-width: 400px;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        /* 角を丸くする */
+    }
+
+    /* ボタンのデザイン */
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007BFF;
+        /* 青色 */
+        color: white;
+    }
