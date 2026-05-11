@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>パスワードジェネレータ</title>
+    <link rel="stylesheet" href="css\style.css">
 </head>
 
 <body class="password">
@@ -13,6 +14,12 @@
         <!-- 桁数と個数の入力欄 -->
         <label>桁数<input type="number" id="lenght" value="8">桁</label>
         <label>個数<input type="number" id="count" value="5">個</label>
+        <!-- オプションのチェックボックス -->
+        <label for=""><input type="checkbox" id="excludeAmbiguous" checked>紛らわしい文字を除外</label>
+        <label for=""><input type="checkbox" id="excludeUppercase">太文字を利用しない</label>
+        <!-- ボタンと結果表示エリア -->
+        <button onclick="generatePasswords()">パスワード生成</button>
+        <textarea name="result" rows="10"></textarea>
     </main>
     <script></script>
 </body>
