@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="contact-form">
+        <p class="title">ご予約はこちら</p>
+        <form action="https://api.staticforms.xyz/submit" method="post">
+            <input type="hidden" name="apiKey" value="sf_abc123def456ghi789">
+            <div class="item">
+                <label class="label">お名前</label>
+                <input type="text" class="inputs" name="name">
+            </div>
+            <div class="item">
+                <label class="label" >メールアドレス</label>
+                <input type="email" class="inputs" name="email" required>
+            </div>
+            <div class="item">
+                <p class="label">御予約席</p>
+                <div class="inputs">
+                        <input type="radio" name="menu" id="s" value="s"><label for="s">
+                            S席</label>
+                        <input type="radio" name="menu" id="a" value="a"><label for="a">
+                            A席</label>
+                        <input type="radio" name="menu" id="b" value="b"><label for="b">
+                            B席</label>
+                </div> 
+            </div>
+            <div class="item">
+                <label class="label">ご質問</label>
+                <textarea class="inputs" placeholder="ご質問はこちら"></textarea>
+            </div>
+            <div class="button-area">
+                <input type="submit" value="予約決定">
+                <input type="reset" value="リセット">
+            </div>
+            <input type="hidden" name="redirectTo" value="https://yoursite.com/thank-you" />
+        </form>
+    </div>
+</body>
+</html>
