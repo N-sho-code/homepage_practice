@@ -20,9 +20,6 @@
     }
 }
 
-.backdrop {
-    backdrop-filter: blur(3px);
-}
 
 .flex {
     display: flex;
@@ -33,6 +30,19 @@
     width: 400px;
     position: relative;
 }
-img{
+
+img {
     width: 400px;
+}
+
+.label {
+    position: absolute;
+}
+
+.backdrop {
+    backdrop-filter: blur(3px);
+}
+
+.opacity {
+    background: rgba(255, 255, 255, 0.4);
 }
