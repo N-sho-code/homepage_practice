@@ -1,0 +1,38 @@
+.container {
+    /* margin-left: auto;
+    margin-right: auto; */
+
+    /* 新しいmargin記法、 
+    margin-inline:40px 600px;*/
+    width: 100%;
+    aspect-ratio: 16/9;
+
+    >.button {
+        cursor: pointer;
+        /* background:#6de7a8; */
+        background: #f00;
+
+        /* 省略 */
+        &:hover {
+            scale: 1.1;
+            opacity: 0.5;
+        }
+    }
+}
+
+.backdrop {
+    backdrop-filter: blur(3px);
+}
+
+.flex {
+    display: flex;
+    gap: 1rem;
+}
+
+.container {
+    width: 400px;
+    position: relative;
+}
+img{
+    width: 400px;
+}

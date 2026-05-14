@@ -1,0 +1,40 @@
+----------------------------------------
+ファイル名 index.html
+----------------------------------------
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main>
+        <!-- ボタン -->
+        <div class="container">
+            <button type="button">ボタン</button>
+        </div>
+    </main>
+</body>
+</html>
+
+----------------------------------------
+ファイル名 style.css
+----------------------------------------
+.container{
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin-inline:40px 600px;
+    >.button{
+        cursor:pointer;
+        /* background:#6de7a8; */
+        background:#f00;
+        /* 省略 */
+        &:hover{
+            scale:1.1;
+            opacity: 0.5;
+        }
+    }
+}.
+.
