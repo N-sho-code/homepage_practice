@@ -1,3 +1,4 @@
+/*ボタン設定*/
 .container {
     /* margin-left: auto;
     margin-right: auto; */
@@ -10,7 +11,7 @@
     >.button {
         cursor: pointer;
         /* background:#6de7a8; */
-        background: #f00;
+        background: #fd0;
 
         /* 省略 */
         &:hover {
@@ -20,7 +21,7 @@
     }
 }
 
-
+/*すりガラス表現*/
 .flex {
     display: flex;
     gap: 1rem;
@@ -36,7 +37,12 @@ img {
 }
 
 .label {
+    width: 100%;
     position: absolute;
+    top: 25%;
+    /* text-align: ; */
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .backdrop {
