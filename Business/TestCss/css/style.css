@@ -40,7 +40,7 @@ img {
     width: 100%;
     position: absolute;
     top: 25%;
-    /* text-align: ; */
+    text-align: center;
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
@@ -51,4 +51,10 @@ img {
 
 .opacity {
     background: rgba(255, 255, 255, 0.4);
+}
+
+p {
+    font-weight: bold;
+    color: white;
+    font-size: 1.4rem;
 }
