@@ -179,6 +179,57 @@
 			</div>
 			<p>即時関数を使うことで、ループ内の変数 <code>x</code>・<code>y</code> のスコープを固定し、それぞれのマスに正しくクリックイベントが割り当てられます。</p>
 			<h2>3日目</h2>
+			<p>この日は、プレイヤーが交互に空いているマスをクリックし、黒石・白石を配置できるようにしました。<br>
+				また、リバーシのルールである「相手の石を挟むと自分の色に反転する」 判定処理も実装しました。</p>
+			<div class="code-block">
+				<p>クリック時の処理を変更</p>
+				<pre>
+					<code>
+						if(board[x][y] == 0){
+							(function(){
+								var _x = x, _y = y;
+								c.onclick = function(){
+									if(checkPiece(_x, _y, true)){
+									showBoard();
+									turn = 3 - turn;
+									}
+								 };
+							})();
+						}
+					</code>
+				</pre>
+			</div>
+			<div class="code-block">
+				<pre>
+					<code>
+						var turn = 1;
+						
+						var checkPiece =function(x, y ,flip){
+							var ret = 0;
+							for(var dx = -1; dx <= 1; dx++){
+							for(var dy = -1; dy <= 1; dy++){
+								if(dx == 0 && dy == 0) { continue; }
+								var nx = x + dx, ny = y + dy, n = 0;
+								while(board[nx][ny] == 3 - turn) {n++; nx += dx; ny += dy;}
+								if(n > 0 && board[nx][ny] == turn){
+									ret += n;
+									if(flip){
+										nx = x + dx; ny = y + dy;
+										while(board[nx][ny] == 3 - turn){
+											board[nx][ny] = turn;
+											nx += dx; ny +=  dy;
+										}
+										board[x][y] = turn;
+									}
+						
+								}
+							}
+							}
+							return ret;
+						};						
+					</code>
+				</pre>
+			</div>
 		</main>
 		<!-- メインここまで -->
 		<footer class="footer">
