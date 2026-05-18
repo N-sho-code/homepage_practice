@@ -1,0 +1,251 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>感想</title>
+	<link rel="stylesheet" href="css\style.css">
+	<link rel="stylesheet" href="css\hamburger.css">
+	<link rel="stylesheet" href="css\responsive.css">
+</head>
+
+<body>
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			const toggle = document.querySelector('.menu-toggle');
+			const menu = document.querySelector('.nav-menu');
+
+			toggle.addEventListener('click', function () {
+				menu.classList.toggle('active');
+			});
+		});
+	</script>
+	<div class="wrapper">
+		<!-- ヘッター -->
+		<header class="header">
+			<h1 class="logo"><a href="index.html"><img src="images\HOME_PAGE_logo(ChatGPT).png" alt="読み込みエラー"></a></h1>
+			<button class="menu-toggle" aria-label="メニューを開閉">☰</button>
+			<nav class="nav">
+				<ul class="nav-menu">
+					<li><a href="index.html">ホーム</a></li>
+					<li><a href="member.html">メンバー</a></li>
+					<li><a href="activities.html">活動記録</a></li>
+					<li><a href="production.html">制作物</a></li>
+					<li><a href="contact.html">問い合わせ</a></li>
+				</ul>
+			</nav>
+		</header>
+		<!-- ヘッター ここまで-->
+		<!-- メイン -->
+		<main>
+			<h2>感想</h2>
+			<string>
+				今回【プログラミング】オセロを1時間で作ってみた【実況解説】(<a href="https://www.nicovideo.jp/watch/sm8391299"
+					target="_blank">https://www.nicovideo.jp/watch/sm8391299</a>)<br>
+				を使ったリバーシゲームをを動画を見ながら作成しました
+			</string>
+			<h2>１日目</h2>
+			<p>
+				今回、「<a href="https://www.nicovideo.jp/watch/sm8391299" target="_blank">
+					【プログラミング】オセロを1時間で作ってみた【実況解説】</a>」という動画を参考に、リバーシゲームを作成しました。<br>
+				参考動画を見ながら、リバーシゲームのマスや石の描画をHTMLとCSSのみで行う実装に挑戦しました。<br>
+				簡素なコードで構造を作り、見た目を再現する過程で、HTML要素の入れ子構造やCSSのスタイル指定について理解を深められました。
+				参考にした動画では、HTML・CSS・JavaScriptだけを使って実装されており、メモ帳などの簡単なツールで作成できる点に魅力を感じました。
+			</p>
+			<div class="code-block">
+				<pre>
+					<code>
+						&lt;!-- 緑マス --&gt;
+						&lt;div id="cell"style="position:relative;width:33px;height:33px;background-color:#000"&gt;
+						&lt;div id="cell"style="position:relative;top:1px;left:1px;width:31px;height:31px;background-color:#0e0"&gt;
+						&lt;/div&gt;
+						&lt;/div&gt;
+					</code>
+				</pre>
+			</div>
+			<p>緑マスをベースに、ペイントツールで作成した<code>「white.png」</code>と<code>「black.png」</code>を使って、白石・黒石の表示を実装しました。</p>
+			<div class="code-block">
+				<pre>
+					<code>
+						&lt;!-- 緑セル --&gt;
+						&lt;div id="cell" style="position:relative; width:33px; height:33px; background-color:#000;"&gt;
+						&lt;div style="position:relative; top:1px; left:1px; width:31px; height:31px; background-color:#0e0;"&gt;&lt;/div&gt;
+						&lt;/div&gt;
+
+						&lt;!-- 白い石 --&gt;
+						&lt;div id="white" style="position:relative; width:33px; height:33px; background-color:#000;"&gt;
+						&lt;img src="white.png" style="display:block; position:relative; top:1px; left:1px; width:31px; height:31px;"&gt;
+						&lt;/div&gt;
+
+						&lt;!-- 黒い石 --&gt;
+						&lt;div id="black" style="position:relative; width:33px; height:33px; background-color:#000;"&gt;
+						&lt;img src="black.png" style="display:block; position:relative; top:1px; left:1px; width:31px; height:31px;"&gt;
+						&lt;/div&gt;piece
+					</code>
+				</pre>
+			</div>
+			<p>
+				CSSの <code>style="position:relative;"</code> を <code>style="position:absolute;"</code>
+				に変更し、JavaScriptのループ文を活用して8×8のボードを自動生成しました。<br>
+				各セルは <code>cloneNode</code> により複製され、ループ変数に応じて <code>left</code> と <code>top</code>
+				を計算し、正しい位置に配置しています。<br>
+				これにより、HTMLとCSSだけでは難しい柔軟な盤面の生成や今後のゲームロジックの拡張も容易になります。
+			</p>
+			<div class="code-block">
+				<pre>
+					<code>
+						&lt;script&gt;
+						(function(){
+						var piece;
+						var showBoard = function(){
+							var b =document.getElementById("board");
+							while(b.firstChild){
+								b.removeChild(b.firstChild);
+
+							}
+							for(var y = 1; y &lt;= 8; y++){
+							for(var x = 1; x &lt;= 8; x++){
+								var c = piece[board[x][y]].cloneNode(true);
+								c.style.left = ((x - 1) * 32) + "px";
+								c.style.top = ((y - 1) * 32) + "px";
+								b.appendChild(c);
+							}
+							}
+						};
+
+						var board = [];
+						onload = function(){
+							piece = [document.getElementById("cell")];
+							for(var i = 0;i &lt; 10; i++){
+								board[i]=[];
+								for(var j = 0;j &lt; 10; j++){
+								board[i][j] = 0;
+								}
+							}
+							showBoard();
+						};
+						})()
+						&lt;/script&gt;
+					</code>
+				</pre>
+			</div>
+			<h2>2日目</h2>
+			<p>この日は、リバーシ盤面に「黒石」「白石」を初期配置する処理に加え、ユーザーが空いているマスをクリックして黒石を置けるようにしました。</p>
+			<h3>・盤面の初期表示を実装</h3>
+			<p>以下のコードにより、盤面の中央に黒（1）と白（2）の駒をあらかじめ表示できるようになりました。配列 <code>board</code> に値をセットし、該当位置に駒が描画されます。</p>
+
+			<div class="code-block">
+				<pre>
+					<code>
+						piece = [
+						document.getElementById("cell"),
+						document.getElementById("black"),
+						document.getElementById("white")
+						];
+						board[4][5] = 1;
+						board[5][4] = 1;
+						board[4][4] = 2;
+						board[5][5] = 2;
+					</code>
+				</pre>
+			</div>
+			<p>さらに、盤面の表示位置を制御するため、以下のような <code>&lt;div&gt;</code> 要素を追加しています。</p>
+			<div class="code-block">
+				<pre>
+					<code>
+						&lt;div style="position:relative" id="board"&gt;&lt;/div&gt;
+					</code>
+				</pre>
+			</div>
+			<p>このように、初期化された盤面において駒が正しい位置に描画され、重ならずに整然と表示されるようになりました。</p>
+			<h3>・クリックで駒を置ける処理を追加</h3>
+			<p>さらに、空いているマス（値が 0 のマス）をクリックすると、そこに黒石（1）を置ける処理を追加しました。</p>
+
+			<div class="code-block">
+				<pre>
+					<code>
+						if (board[x][y] == 0) {
+						(function () {
+							var _x = x, _y = y;
+							c.onclick = function () {
+							board[_x][_y] = 1;
+							showBoard();
+							};
+						})();
+						}
+					</code>
+				</pre>
+			</div>
+			<p>即時関数を使うことで、ループ内の変数 <code>x</code>・<code>y</code> のスコープを固定し、それぞれのマスに正しくクリックイベントが割り当てられます。</p>
+			<h2>3日目</h2>
+			<p>この日は、プレイヤーが交互に空いているマスをクリックし、黒石・白石を配置できるようにしました。<br>
+				また、リバーシのルールである「相手の石を挟むと自分の色に反転する」 判定処理も実装しました。</p>
+			<p>クリック時の処理を変更</p>
+			<div class="code-block">
+				<pre>
+					<code>
+						if(board[x][y] == 0){
+							(function(){
+								var _x = x, _y = y;
+								c.onclick = function(){
+									if(checkPiece(_x, _y, true)){
+									showBoard();
+									turn = 3 - turn;
+									}
+								 };
+							})();
+						}
+					</code>
+				</pre>
+			</div>
+			<p>
+				空いているマス
+			</p>
+			<div class="code-block">
+				<pre>
+					<code>
+						var turn = 1;
+						
+						var checkPiece =function(x, y ,flip){
+							var ret = 0;
+							for(var dx = -1; dx <= 1; dx++){
+							for(var dy = -1; dy <= 1; dy++){
+								if(dx == 0 && dy == 0) { continue; }
+								var nx = x + dx, ny = y + dy, n = 0;
+								while(board[nx][ny] == 3 - turn) {n++; nx += dx; ny += dy;}
+								if(n > 0 && board[nx][ny] == turn){
+									ret += n;
+									if(flip){
+										nx = x + dx; ny = y + dy;
+										while(board[nx][ny] == 3 - turn){
+											board[nx][ny] = turn;
+											nx += dx; ny +=  dy;
+										}
+										board[x][y] = turn;
+									}
+								}
+							}
+							}
+							return ret;
+						};						
+					</code>
+				</pre>
+			</div>
+			<p>
+			<pre><code>checkPiece()</code></pre>では、
+			8方向すべてを探索して相手の石を挟めるか確認しています<br>
+			挟める場合はその方向の石をすべて現在のプレイヤーの色へ反転させ、
+			リバーシの基本ルールを再現しました<br>
+			この処理を通して、配列操作・ループ制御・条件分岐を組み合わせた
+			ゲームロジックの実装方法を学ぶことができました。
+			</p>
+		</main>
+		<!-- メインここまで -->
+		<footer class="footer">
+			<p>&copy;Copyright TEST HOME PAGE. ALL rights reserved.</p>
+		</footer>
+	</div>
+</body>
+
+</html>
