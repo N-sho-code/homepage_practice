@@ -12,7 +12,67 @@
         <div class="content">
             <div style="width:100%;">
                 <table class="vr_loginBase" border="0" cellspacing="0" cellpadding="0" width="100%">
+                    <tr>
+                        <tb class="vr_loginForm">
+                            <center>
+                                <div style="width:100%">
+                                    <table border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <tb class="loginBase1"></tb>
+                                            <tb class="loginBase2"></tb>
+                                            <tb class="loginBase3"></tb>
+                                        </tr>
+                                        <tr>
+                                            <tb class="loginBase4"></tb>
+                                            <tb class="loginBase5">
+                                                <p class="vr_alignCenter vr_desc">ログインが必要です。</p>
+                                                <div class="vr_loginAreaWrapper">
+                                                    <div class="vr_loginArea">
+                                                        <table cellspacing="0" cellpadding="10" border="0" align="center">
+                                                            <tr>
+                                                                <tb>
+                                                                    <b>（有）hogehgeITシステム</b>
+                                                                </tb>
+                                                            </tr>
+                                                        </table>
+                                                        <table cellspacing="0" border="0" align="center">
+                                                            <form method="post" name="LoginForm" action="ag.cgi?" autocomplete="off" style="display:inline;">
+                                                                <input type="hidden" name="csrf_ticket" value="">
+                                                                <input type=hidden name="_System" value=login>
+                                                                <input type=hidden name="_Login" value=1>
+                                                                <input type=hidden name="LoginMethod" value="0">
+                                                                <tr>
+                                                                    <td nowrap style="width:25em; line-height:0;">&nbsp;
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="loginmain">
+                                                                        <table>
+                                                                            <tr>
+                                                                                <tb>名前</tb>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <tb><select name="vr_loginForm" name="_ID">
+                                                                                    <option value="">あなたのお名前
+                                                                                        
+                                                                                    </option>
+                                                                                </select></tb>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
 
+                                                            </form>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </tb>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </center>
+                        </tb>
+                    </tr>
                 </table>
             </div>
         </div>
