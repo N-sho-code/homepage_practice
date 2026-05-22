@@ -28,7 +28,8 @@
                                                 <p class="vr_alignCenter vr_desc">ログインが必要です。</p>
                                                 <div class="vr_loginAreaWrapper">
                                                     <div class="vr_loginArea">
-                                                        <table cellspacing="0" cellpadding="10" border="0" align="center">
+                                                        <table cellspacing="0" cellpadding="10" border="0"
+                                                            align="center">
                                                             <tr>
                                                                 <tb>
                                                                     <b>（有）hogehgeITシステム</b>
@@ -36,7 +37,7 @@
                                                             </tr>
                                                         </table>
                                                         <table cellspacing="0" border="0" align="center">
-                                                            <form method="post" name="LoginForm" action="ag.cgi?" autocomplete="off" style="display:inline;">
+                                                            <form method="post" name="LoginForm" action="ag.cgi?"                                                                autocomplete="off" style="display:inline;">
                                                                 <input type="hidden" name="csrf_ticket" value="">
                                                                 <input type=hidden name="_System" value=login>
                                                                 <input type=hidden name="_Login" value=1>
@@ -52,11 +53,23 @@
                                                                                 <tb>名前</tb>
                                                                             </tr>
                                                                             <tr>
-                                                                                <tb><select name="vr_loginForm" name="_ID">
-                                                                                    <option value="">あなたのお名前
-                                                                                        
-                                                                                    </option>
-                                                                                </select></tb>
+                                                                                <tb><select class="vr_loginForm"name="_ID">
+                                                                                        <option value="">あなたのお名前
+                                                                                        <option value=10>橘 蒼真</option>
+                                                                                        <option value=20>星野 瑠璃</option>
+                                                                                        <option value=30>九条 蓮</option>
+                                                                                        <option value=40>白銀 結衣</option>
+                                                                                        <option value=50>水無月 翔太</option>
+                                                                                        <option value=60>神崎 莉乃</option>
+                                                                                        <option value=70>柊 大輝</option>
+                                                                                        <option value=80>如月 美咲</option>
+                                                                                        <option value=90>五十嵐 健</option>
+                                                                                        <option value=100>涼風 芽衣</option>
+                                                                                        <option value=110>鳴海 拓海</option>
+                                                                                        <option value=120>桜庭 琴音</option>
+                                                                                        <option value=130>黒川 迅</option>
+                                                                                        </option>
+                                                                                    </select></tb>
                                                                             </tr>
                                                                         </table>
                                                                     </td>
