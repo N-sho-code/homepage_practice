@@ -58,3 +58,7 @@ p {
     color: white;
     font-size: 1.4rem;
 }
+.container3{
+    container-type: inline-size;
+    border: solid;
+}
