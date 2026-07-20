@@ -49,5 +49,7 @@ https://youtu.be/Knbc0SRP2xs?si=6FGoAgYcadE1gtd2
 ・Javascriptゲームプログラミング初級【ブロック崩し】if文・for文・関数・Gameの基礎・アニメーションについて学べます。  
 　Javascript入門 | ジャバスクリプト初心者 ゲーム開発  
 https://youtu.be/g2FlXCSy0yI?si=9Cm1PQlaGLmFXxHF  
-・スクロールしたら要素をフワっとアニメーションして、表示させる方法を紹介！  　　
-https://youtu.be/zJZ3B4QKzZI?si=KGHHTS5XeGCbQp56
+・スクロールしたら要素をフワっとアニメーションして、表示させる方法を紹介！  
+https://youtu.be/zJZ3B4QKzZI?si=KGHHTS5XeGCbQp56  
+・ASMR Programming - Calculator App Coding - No Talking  
+https://youtu.be/sBJmRD7kNTk?si=N61A8fQgi9Tk1A66  
