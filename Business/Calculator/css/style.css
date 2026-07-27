@@ -13,5 +13,6 @@ html {
 
 body {
     align-items: center;
-    background: linear-gradient(320deg, #ed92be);
+    /* 背景色 */
+    background: linear-gradient(320deg, #ed92be,#ffef78,#63c9b4);
 }
