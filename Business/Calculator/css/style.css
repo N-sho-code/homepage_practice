@@ -15,4 +15,10 @@ body {
     align-items: center;
     /* 背景色 */
     background: linear-gradient(320deg, #ed92be,#ffef78,#63c9b4);
+    /* 配置 */
+    display: flex;
+    font-family: 'Dosis',sans-serif;
+    font-display: swap;
+    height: inherit;
+    justify-content: center;
 }
