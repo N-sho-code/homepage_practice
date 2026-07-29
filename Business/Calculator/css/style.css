@@ -22,3 +22,10 @@ body {
     height: inherit;
     justify-content: center;
 }
+
+.wrapper{
+    backdrop-filter: blir(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.01);
+}
