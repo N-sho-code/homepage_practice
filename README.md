@@ -53,3 +53,5 @@ https://youtu.be/g2FlXCSy0yI?si=9Cm1PQlaGLmFXxHF
 https://youtu.be/zJZ3B4QKzZI?si=KGHHTS5XeGCbQp56  
 ・ASMR Programming - Calculator App Coding - No Talking  
 https://youtu.be/sBJmRD7kNTk?si=N61A8fQgi9Tk1A66  
+・Build Infinite Carousel Animations in 4 Minutes  
+https://youtu.be/KD1Yo8a_Qis?si=DBNhDi6H2qJlyNv8  
