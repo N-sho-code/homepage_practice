@@ -88,3 +88,11 @@ body {
     font-size: 24px;
     height: 65px;
 }
+.calc-button:last-child{
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(35, 35, 35, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+}
