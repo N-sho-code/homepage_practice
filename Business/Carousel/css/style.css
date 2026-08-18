@@ -1,17 +1,23 @@
-.carousel{
+.carousel {
     margin: 100px auto;
     width: 90%;
     border: 5px solid red;
     display: flex;
     overflow-x: auto;
 }
-.group{
+
+.group {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1em;
 }
-.card{
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.card {
     flex: 0 0 5em;
     height: 5em;
     padding: 1em;
@@ -20,4 +26,9 @@
     border-radius: .2em;
     text-align: center;
     align-content: center;
+}
+
+@keyframes spin {
+    from {translate:0;}
+    to{translate:-100%;}    
 }
