@@ -30,7 +30,8 @@
 }
 
 @keyframes spin {
+    /* コメント */
     from {translate:0;}
     to{translate:-100%;} 
-      
+
 }
