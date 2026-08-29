@@ -4,6 +4,7 @@
     border: 5px solid red;
     display: flex;
     overflow-x: auto;
+    /* gap: 1em; */
 }
 
 .group {
@@ -12,6 +13,7 @@
     justify-content: center;
     gap: 1em;
     animation: spin 5s infinite linear;
+    padding-right: 1em;
 }
 
 .carousel::-webkit-scrollbar {
@@ -30,7 +32,6 @@
 }
 
 @keyframes spin {
-    /* コメント */
     from {translate:0;}
     to{translate:-100%;} 
 
