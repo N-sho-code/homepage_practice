@@ -5,28 +5,28 @@
 
   
 ## 工夫したこと  
-・初めて見る人でも迷わないように、シンプルで見やすいレイアウトを心がけました。  
-・スマホでも見やすくなるよう、レスポンシブ対応とハンバーガーメニューを取り入れました。  
-・制作物が増えても見やすいように、カテゴリ別に絞り込みができるフィルター機能をつけてみました。  
-・あとから内容を増やしやすいように、HTMLの構造も整理して書くことを意識しました。  
+- 初めて見る人でも迷わないように、シンプルで見やすいレイアウトを心がけました。  
+- スマホでも見やすくなるよう、レスポンシブ対応とハンバーガーメニューを取り入れました。  
+- 制作物が増えても見やすいように、カテゴリ別に絞り込みができるフィルター機能をつけてみました。  
+- あとから内容を増やしやすいように、HTMLの構造も整理して書くことを意識しました。  
   
 ## 実装機能  
-・ハンバーガボタンの表示(767px以下)  
+- ハンバーガボタンの表示(767px以下)  
 ![Hamburger button](https://github.com/N-sho-code/homepage_practice/blob/main/images/Hamburger%20button.gif)  
-## ・フィルター機能  
+## フィルター機能  
   
 ![Filter_function](https://github.com/N-sho-code/homepage_practice/blob/main/images/Filter_function.gif)  
 
 ## 苦労したこと
-・ハンバーガーメニューがPC表示時にも影響してしまい、CSSの条件分岐の整理に苦労しました  
+- ハンバーガーメニューがPC表示時にも影響してしまい、CSSの条件分岐の整理に苦労しました  
 
 ## 実行環境
-・OS：Windows 10 / Windows 11  
-・ブラウザ：Google Chrome / Microsoft Edge（最新版）  
-・開発環境：Visual Studio Code  
+- OS：Windows 10 / Windows 11  
+- ブラウザ：Google Chrome / Microsoft Edge（最新版）  
+- 開発環境：Visual Studio Code  
 
 ## 動作確認
-・Google Chrome（Windows）で動作確認済み  
+- Google Chrome（Windows）で動作確認済み  
 ## 利用ツール、利用サイト  
 ・Visual Studio Code  
 ・サクラエディタ  
